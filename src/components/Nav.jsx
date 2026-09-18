@@ -4,7 +4,7 @@ import star1 from '../../brand/hover_nav/étoile 1.svg?raw'
 import star2 from '../../brand/hover_nav/étoile 2.svg?raw'
 
 const LINKS = [
-  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Portfolio', href: '#top' },
   { label: 'Services', href: '#services' },
   { label: 'À propos', href: '#a-propos' },
   { label: 'Contact', href: '#contact' },

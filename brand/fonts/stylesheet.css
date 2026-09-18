@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Espion Rounded';
+    src: url('EspionRounded-Regular.eot');
+    src: local('Espion Rounded Regular'), local('EspionRounded-Regular'),
+        url('EspionRounded-Regular.eot?#iefix') format('embedded-opentype'),
+        url('EspionRounded-Regular.woff2') format('woff2'),
+        url('EspionRounded-Regular.woff') format('woff'),
+        url('EspionRounded-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

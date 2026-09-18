@@ -39,16 +39,43 @@ function ParallaxScroll() {
             ease: 'none',
             scrollTrigger: {
               trigger: section,
-              start: 'top top',
+              start: 'top bottom',
               end: 'bottom top',
               scrub: 1.2,
             },
           },
         )
       })
+
+      const home = document.querySelector('.home')
+      if (home) {
+        gsap.fromTo(
+          home,
+          { backgroundColor: '#ffffff' },
+          {
+            backgroundColor: '#222222',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 85%',
+              end: 'top top',
+              scrub: 1,
+              onUpdate: (self) => {
+                home.classList.toggle('home--dark', self.progress > 0.4)
+              },
+            },
+          },
+        )
+      }
     }, section)
 
-    return () => ctx.revert()
+    const refresh = () => ScrollTrigger.refresh()
+    window.addEventListener('load', refresh)
+
+    return () => {
+      ctx.revert()
+      window.removeEventListener('load', refresh)
+    }
   }, [])
 
   return (
@@ -62,7 +89,6 @@ function ParallaxScroll() {
           </div>
         ))}
       </section>
-      <section className="next-section" />
     </>
   )
 }

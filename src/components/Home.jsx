@@ -2,8 +2,11 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import Nav from './Nav.jsx'
 import ParallaxScroll from './ParallaxScroll.jsx'
+import APropos from './APropos.jsx'
+import Work from './Work.jsx'
+import Wave from './Wave.jsx'
+import teaserVideo from '../../brand/video/Teaser Reflet du crime - Film Interactif.mp4'
 import meImg from '../../brand/images/moi/me.png'
-import underlineImg from '../../brand/images/surlignements/surlignement_homepage.svg'
 
 function Home({ visible }) {
   const rootRef = useRef(null)
@@ -37,46 +40,57 @@ function Home({ visible }) {
   }
 
   return (
-    <main className="home" ref={rootRef}>
+    <main className="home" id="top" ref={rootRef}>
       <Nav />
 
-      <section className="intro">
-        <img
-          ref={imgRef}
-          className="intro__me"
-          src={meImg}
-          alt=""
-          aria-hidden="true"
+      <section className="hero">
+        <video
+          className="hero__video"
+          src={teaserVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
         />
-        <h2
-          className="intro__title"
-          style={{ '--intro-underline': `url("${underlineImg}")` }}
-        >
-          <span className="intro__line intro__line--big">
-            Hello 👋, moi c&apos;est{' '}
-            <strong
-              className="intro__trigger"
-              onMouseEnter={onEnter}
-              onMouseMove={onMove}
-              onMouseLeave={onLeave}
-            >
-              Smylebreak
-            </strong>
-          </span>
 
-          <span className="intro__line">
-            Si t&apos;es arrivé ici, c&apos;est que tu souhaites découvrir mon travail 🎬.
-            C&apos;est parfait, t&apos;es au <strong>bon endroit</strong> !
-          </span>
+        <div className="hero__content">
+          <img
+            ref={imgRef}
+            className="hero__me"
+            src={meImg}
+            alt=""
+            aria-hidden="true"
+          />
+          <h2 className="hero__title">
+            <span className="hero__line hero__line--big">
+              Hello <Wave className="hero__wave" />, moi c&apos;est{' '}
+              <strong
+                className="hero__trigger hero__mark"
+                onMouseEnter={onEnter}
+                onMouseMove={onMove}
+                onMouseLeave={onLeave}
+              >
+                SmyleBreak
+              </strong>
+            </span>
 
-          <span className="intro__line intro__line--tail">
-            Si t&apos;es perdu sur internet, tu peux repartir… ou rester.{' '}
-            <strong>Bonne visite !</strong>
-          </span>
-        </h2>
+            <span className="hero__line">
+              Si t&apos;es arrivé ici, c&apos;est que tu souhaites découvrir mon
+              travail 🎬. C&apos;est parfait, t&apos;es au{' '}
+              <strong>bon endroit</strong> !
+            </span>
+
+            <span className="hero__line hero__line--tail">
+              Si t&apos;es perdu sur internet, tu peux repartir… ou rester.{' '}
+              <strong>Bonne visite !</strong>
+            </span>
+          </h2>
+        </div>
       </section>
 
       <ParallaxScroll />
+      <APropos />
+      <Work />
     </main>
   )
 }
